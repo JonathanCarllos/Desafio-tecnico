@@ -1,0 +1,47 @@
+.user-crud {
+  padding: 20px;
+}
+
+.user-crud p {
+  font-size: 1rem;
+}
+
+.user-crud .error {
+  color: #dc3545; 
+  font-weight: 500;
+}
+
+.user-crud table {
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.user-crud thead {
+  background-color: #0d6efd; 
+  color: #fff;
+}
+
+.user-crud thead th {
+  border: none;
+  padding: 12px;
+  text-align: left;
+}
+
+.user-crud tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.user-crud tbody tr:hover {
+  background-color: #f1f5ff;
+}
+
+.user-crud td {
+  padding: 10px 12px;
+  vertical-align: middle;
+}
+
+.user-crud td:first-child {
+  font-weight: 500;
+  color: #6c757d;
+}

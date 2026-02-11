@@ -1,0 +1,73 @@
+.transacao-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.transacao-container h2 {
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #2c3e50;
+}
+
+.transacao-form {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid #e9ecef;
+}
+
+.transacao-form .form-control,
+.transacao-form .form-select {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  transition: 0.2s;
+}
+
+.transacao-form .form-control:focus,
+.transacao-form .form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+.btn-create {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.btn-create:hover {
+  transform: translateY(-1px);
+}
+
+.transacao-table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.transacao-table thead {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+.transacao-table th {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.transacao-table td {
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.transacao-table tbody tr:hover {
+  background-color: #f1f5ff;
+  transition: 0.2s;
+}
+
+.alert {
+  border-radius: 8px;
+  font-size: 14px;
+}
