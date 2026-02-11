@@ -160,25 +160,3 @@ Uso de DTO para desacoplamento da camada de domínio
 Repository Pattern para abstração de acesso a dados
 
 Async/Await em todas as operações
-
-Código preparado para futura implementação de autenticação JWT
-
-📈 Possíveis Evoluções
-
-🔹 Implementação de testes unitários (xUnit + Moq)
-
-🔹 Autenticação JWT
-
-🔹 FluentValidation
-
-🔹 Log estruturado com Serilog
-
-🔹 Padronização de respostas com Result Pattern
-
-<div align="center">
-👨‍💻 Autor
-
-Jonathan Carlos Moura da Silva
-Desenvolvedor .NET
-
-</div>
