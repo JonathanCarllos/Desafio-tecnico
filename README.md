@@ -1,202 +1,149 @@
-📌 Objetivo
+📖 Sobre o Projeto
 
-Desenvolver uma API RESTful utilizando ASP.NET Core, aplicando boas práticas de arquitetura, organização em camadas e princípios de desenvolvimento como:
+Esta API implementa um sistema simples de gerenciamento financeiro com:
 
-Separação de Responsabilidades (SRP)
+👤 Pessoas
 
-Inversão de Dependência (DIP)
+🏷️ Categorias
 
-Clean Code
+💰 Transações
 
-Arquitetura em Camadas
+O foco principal do projeto é demonstrar:
 
-Uso de DTO para desacoplamento
+Organização em camadas
 
-🏗️ Arquitetura da Solução
+Aplicação de boas práticas
 
-A aplicação foi estruturada seguindo o padrão:
+Clareza arquitetural
 
-Controller → Service → Repository → Database
+Código limpo e manutenível
 
+🏗️ Arquitetura da Aplicação
 
-Essa organização permite:
+A solução foi estruturada utilizando Arquitetura em Camadas:
 
-Maior testabilidade
+📦 Controllers
+   ↓
+📦 Services
+   ↓
+📦 Repositories
+   ↓
+🗄️ Database
 
-Facilidade de manutenção
+🔹 Separação de Responsabilidades
+🎯 Controllers
 
-Baixo acoplamento
+Responsáveis pelos endpoints HTTP
 
-Melhor organização da regra de negócio
+Tratam requisições e retornos
 
-🔹 Estrutura de Camadas
-📌 Controllers
+Não contêm regra de negócio
 
-Responsáveis por:
+🧠 Services
 
-Expor os endpoints HTTP
+Contêm regras de negócio
 
-Receber e validar requisições
+Orquestram chamadas aos repositories
 
-Retornar respostas padronizadas (Status Code)
+Realizam conversão entre Model e DTO
 
-Não possuem regra de negócio.
+💾 Repositories
 
-📌 Services
+Responsáveis pelo acesso ao banco
 
-Responsáveis por:
+Executam operações CRUD
 
-Implementar regras de negócio
+Utilizam Entity Framework Core
 
-Orquestrar chamadas ao repository
+🧱 Models
 
-Conversão entre Model e DTO
+Representam as entidades do banco
 
-Aplicar validações de domínio
+Definem relacionamentos
 
-📌 Repositories
+Aplicam validações com DataAnnotations
 
-Responsáveis por:
+🔄 DTOs (Data Transfer Objects)
 
-Acesso ao banco de dados
+Controlam dados expostos pela API
 
-Operações CRUD
+Evitam exposição direta das entidades
 
-Comunicação com o Entity Framework Core
+Melhoram segurança e desacoplamento
 
-Não possuem regra de negócio.
-
-📌 Models (Entidades)
-
-Representam:
-
-Estrutura das tabelas no banco
-
-Relacionamentos entre entidades
-
-Utilizam DataAnnotations para validação básica.
-
-📌 DTOs (Data Transfer Objects)
-
-Utilizados para:
-
-Controlar os dados enviados e recebidos pela API
-
-Evitar exposição direta das entidades
-
-Melhorar segurança e desacoplamento
-
-🧱 Domínio da Aplicação
-
-A API implementa um sistema de gerenciamento financeiro simplificado contendo:
-
+📊 Domínio da Aplicação
 👤 Pessoa
-
-Id (gerado automaticamente)
-
-Nome (máx. 200 caracteres)
-
-Idade
-
+Campo	Tipo
+Id	int
+Nome	string (máx. 200)
+Idade	int
 🏷️ Categoria
-
-Id
-
-Nome
-
+Campo	Tipo
+Id	int
+Nome	string
 💰 Transação
+Campo	Tipo
+Id	int
+Descrição	string
+Valor	decimal
+PessoaId	int (FK)
+CategoriaId	int (FK)
+🔗 Regras de Negócio
 
-Id
+✔️ Exclusão em cascata:
+Ao remover uma Pessoa, todas as suas Transações são removidas.
 
-Descrição
+✔️ Validações aplicadas via DataAnnotations e camada de Service.
 
-Valor
+✔️ Separação clara entre regra de negócio e persistência.
 
-PessoaId (FK)
-
-CategoriaId (FK)
-
-🔗 Regras de Negócio Implementadas
-
-Ao excluir uma Pessoa, todas as suas Transações são removidas (integridade referencial).
-
-Validações aplicadas via DataAnnotations e camada de serviço.
-
-Separação clara entre regra de negócio e acesso a dados.
-
-🛠️ Tecnologias Utilizadas
-
-.NET 8
-
-ASP.NET Core Web API
-
-Entity Framework Core
-
-SQL Server
-
-Swagger (OpenAPI)
-
-Injeção de Dependência nativa do .NET
-
-📡 Endpoints Disponíveis
+📡 Endpoints
 👤 Pessoa
-
-GET /api/pessoa
-
-GET /api/pessoa/{id}
-
-POST /api/pessoa
-
-PUT /api/pessoa/{id}
-
+GET    /api/pessoa
+GET    /api/pessoa/{id}
+POST   /api/pessoa
+PUT    /api/pessoa/{id}
 DELETE /api/pessoa/{id}
 
 🏷️ Categoria
-
-GET /api/categoria
-
-POST /api/categoria
-
-PUT /api/categoria/{id}
-
+GET    /api/categoria
+POST   /api/categoria
+PUT    /api/categoria/{id}
 DELETE /api/categoria/{id}
 
 💰 Transação
-
-GET /api/transacao
-
-POST /api/transacao
-
-PUT /api/transacao/{id}
-
+GET    /api/transacao
+POST   /api/transacao
+PUT    /api/transacao/{id}
 DELETE /api/transacao/{id}
 
-🔐 Boas Práticas Aplicadas
+🛠️ Tecnologias Utilizadas
 
-✔️ Arquitetura em camadas
-✔️ Princípios SOLID
-✔️ DTO para desacoplamento
-✔️ Async/Await em todas as operações
-✔️ Tratamento adequado de Status Codes
-✔️ Código organizado e legível
-✔️ Separação entre regra de negócio e persistência
+✅ .NET 8
 
-▶️ Como Executar o Projeto
+✅ ASP.NET Core Web API
+
+✅ Entity Framework Core
+
+✅ SQL Server
+
+✅ Swagger / OpenAPI
+
+✅ Injeção de Dependência
+
+⚙️ Como Executar
 1️⃣ Clonar o repositório
 git clone https://github.com/seu-usuario/seu-repositorio.git
 
-2️⃣ Configurar a Connection String
-
-No appsettings.json:
-
+2️⃣ Configurar appsettings.json
 "ConnectionStrings": {
   "DefaultConnection": "Server=SEU_SERVIDOR;Database=SEU_BANCO;Trusted_Connection=True;"
 }
 
-3️⃣ Aplicar Migrations
+3️⃣ Aplicar migrations
 dotnet ef database update
 
-4️⃣ Executar a aplicação
+4️⃣ Executar
 dotnet run
 
 
@@ -206,24 +153,32 @@ https://localhost:xxxx/swagger
 
 🧠 Decisões Técnicas
 
-Foi adotado o padrão Repository para desacoplar o acesso ao banco.
+Arquitetura em camadas para garantir organização e escalabilidade
 
-A camada Service centraliza as regras de negócio.
+Uso de DTO para desacoplamento da camada de domínio
 
-DTOs foram utilizados para evitar exposição direta das entidades.
+Repository Pattern para abstração de acesso a dados
 
-Estrutura preparada para futura implementação de autenticação JWT.
+Async/Await em todas as operações
 
-Projeto organizado para facilitar testes unitários.
+Código preparado para futura implementação de autenticação JWT
 
-📈 Pontos de Evolução
+📈 Possíveis Evoluções
 
-Implementação de testes unitários (xUnit + Moq)
+🔹 Implementação de testes unitários (xUnit + Moq)
 
-Implementação de autenticação JWT
+🔹 Autenticação JWT
 
-Implementação de validações com FluentValidation
+🔹 FluentValidation
 
-Implementação de padrão Result para respostas padronizadas
+🔹 Log estruturado com Serilog
 
-Log estruturado com Serilog
+🔹 Padronização de respostas com Result Pattern
+
+<div align="center">
+👨‍💻 Autor
+
+Jonathan Carlos Moura da Silva
+Desenvolvedor .NET
+
+</div>
